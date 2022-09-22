@@ -1,0 +1,30 @@
+{
+  "name": "blog.dunggramer.com",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fe": "yarn workspaces front-end run dev",
+    "be": "yarn workspaces back-end start",
+    "start": "concurrently \"yarn fe\" \"yarn be\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DungGramer/blog.dunggramer.com.git"
+  },
+  "workspaces": [
+    "back-end/",
+    "front-end/"
+  ],
+  "keywords": [],
+  "author": "DungGramer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DungGramer/blog.dunggramer.com/issues"
+  },
+  "homepage": "https://github.com/DungGramer/blog.dunggramer.com#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}

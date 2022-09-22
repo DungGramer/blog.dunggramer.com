@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Front-end",
+      "type": "shell",
+      "command": "yarn run dev",
+      "windows": {
+        "command": "cd front-end/ && yarn dev"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Run Back-end",
+      "type": "shell",
+      "command": "yarn run dev",
+      "windows": {
+        "command": "cd back-end/ && yarn start"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Open localhost back-end",
+      "type": "shell",
+      "command": "start http://localhost:3333",
+      "windows": {
+        "command": "start http://localhost:3333"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Open localhost front-end",
+      "type": "shell",
+      "command": "start http://localhost:3000",
+      "windows": {
+        "command": "start http://localhost:3000"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": { "runOn": "folderOpen" }
+    }
+  ]
+}
