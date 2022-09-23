@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "fe": "yarn workspaces front-end run dev",
-    "be": "yarn workspaces back-end start",
+    "fe": "yarn workspace @blog.dunggramer.com/front-end dev",
+    "be": "yarn workspace @blog.dunggramer.com/back-end start",
     "start": "concurrently \"yarn fe\" \"yarn be\""
   },
   "repository": {
