@@ -4,9 +4,9 @@
     {
       "label": "Run Front-end",
       "type": "shell",
-      "command": "yarn run dev",
+      "command": "yarn fe",
       "windows": {
-        "command": "cd front-end/ && yarn dev"
+        "command": "yarn fe"
       },
       "presentation": {
         "reveal": "always",
@@ -17,9 +17,9 @@
     {
       "label": "Run Back-end",
       "type": "shell",
-      "command": "yarn run dev",
+      "command": "yarn be",
       "windows": {
-        "command": "cd back-end/ && yarn start"
+        "command": "yarn be"
       },
       "presentation": {
         "reveal": "always",
@@ -35,7 +35,7 @@
         "command": "start http://localhost:3333"
       },
       "presentation": {
-        "reveal": "always",
+        "reveal": "silent",
         "panel": "new"
       },
       "runOptions": { "runOn": "folderOpen" }
@@ -48,7 +48,7 @@
         "command": "start http://localhost:3000"
       },
       "presentation": {
-        "reveal": "always",
+        "reveal": "silent",
         "panel": "new"
       },
       "runOptions": { "runOn": "folderOpen" }
