@@ -56,6 +56,45 @@ export default createSchema({
           name: 'coverImage',
           type: 'image',
           title: 'Cover Image',
+          fields: [
+            {
+              name: 'alt',
+              type: 'text',
+              title: 'Description',
+            }
+          ],
+          options: {
+            hotspot: true
+          }
+        },
+        {
+          name: 'content',
+          type: 'array',
+          title: 'Content',
+          of: [
+            {
+              type: 'block'
+            },
+            {
+              type: 'image',
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'text',
+                  title: 'Alternative Text',
+                  options: {
+                    isHighlighted: true
+                  }
+                }
+              ]
+            },
+            {
+              type: 'code',
+              options: {
+                withFilename: true
+              }
+            }
+          ],
           options: {
             hotspot: true
           }
