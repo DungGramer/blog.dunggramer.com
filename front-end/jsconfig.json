@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "module": "commonjs",
+    "moduleResolution": "node"
+  },
+  "exclude": ["node_modules"],
+  "files.exclude": {
+    "node_modules": true
   }
 }
