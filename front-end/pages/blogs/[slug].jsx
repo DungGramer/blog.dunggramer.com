@@ -12,7 +12,7 @@ const BlogDetail = ({ blog }) => {
           <BlogHeader
             title={blog.title}
             subtitle={blog.subtitle}
-            coverImage={urlFor(blog.coverImage).height(600).url()}
+            coverImage={blog.coverImage ? urlFor(blog.coverImage).height(600).url() : 'https://picsum.photos/1200/600'}
             author={blog.author}
             date={blog.date}
           />
