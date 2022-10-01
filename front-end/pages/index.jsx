@@ -1,22 +1,57 @@
 import { useState } from 'react';
 
-import { Row, Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import PageLayout from 'components/PageLayout';
 import AuthorIntro from 'components/AuthorIntro';
-import CardItem from 'components/CardItem';
-import CardListItem from 'components/CardListItem';
 import FilteringMenu from 'components/FilteringMenu';
 
 import { getAllBlogs } from 'lib/api';
-import { useGetBlogs, useGetHello } from 'actions';
+import { useGetBlogsPages } from 'actions/pagination';
+import CardListItem from 'components/CardListItem';
+import CardItem from 'components/CardItem';
+import { format } from 'date-fns';
 
-export default function Home({ blogs: initialData }) {
+export const BlogList = ({ data = [], filter }) => {
+  return data.map((page) =>
+    page.map((blog) =>
+      filter.view.list ? (
+        <Col key={`${blog.slug}-list`} md="9">
+          <CardListItem
+            author={blog.author}
+            title={blog.title}
+            subtitle={blog.subtitle}
+            date={format(new Date(blog.date), 'LL')}
+            link={{
+              href: '/blogs/[slug]',
+              as: `/blogs/${blog.slug}`,
+            }}
+          />
+        </Col>
+      ) : (
+        <Col key={blog.slug} lg="4" md="6">
+          <CardItem
+            author={blog.author}
+            title={blog.title}
+            subtitle={blog.subtitle}
+            date={format(new Date(blog.date), 'LL')}
+            image={blog.coverImage}
+            link={{
+              href: '/blogs/[slug]',
+              as: `/blogs/${blog.slug}`,
+            }}
+          />
+        </Col>
+      )
+    )
+  );
+};
+
+export default function Home({ blogs }) {
   const [filter, setFilter] = useState({
     view: { list: 0 },
   });
 
-  const { data: blogs, error } = useGetBlogs(initialData);
-  console.log(`📕 blogs - 19:index.jsx \n`, blogs);
+  const { data, size, setSize, hitEnd } = useGetBlogsPages({ filter });
 
   return (
     <PageLayout>
@@ -24,42 +59,12 @@ export default function Home({ blogs: initialData }) {
       <FilteringMenu
         filter={filter}
         onChange={(option, value) => {
-          debugger;
           setFilter({ ...filter, [option]: value });
         }}
       />
       <hr />
       <Row className="mb-5">
-        {blogs?.map((blog) =>
-          filter.view.list ? (
-            <Col key={`${blog.slug}-list`} md="9">
-              <CardListItem
-                author={blog.author}
-                title={blog.title}
-                subtitle={blog.subtitle}
-                date={blog.date}
-                link={{
-                  href: '/blogs/[slug]',
-                  as: `/blogs/${blog.slug}`,
-                }}
-              />
-            </Col>
-          ) : (
-            <Col key={blog.slug} md="4">
-              <CardItem
-                author={blog.author}
-                title={blog.title}
-                subtitle={blog.subtitle}
-                date={blog.date}
-                image={blog.coverImage}
-                link={{
-                  href: '/blogs/[slug]',
-                  as: `/blogs/${blog.slug}`,
-                }}
-              />
-            </Col>
-          )
-        )}
+        <BlogList data={data || [blogs]} filter={filter} />
       </Row>
     </PageLayout>
   );

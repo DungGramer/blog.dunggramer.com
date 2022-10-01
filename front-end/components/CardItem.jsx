@@ -27,6 +27,10 @@ const CardItem = ({ title, subtitle, date, image, author, link }) => {
         <div className='view overlay'>
           <Card.Img
             src={image ? urlFor(image).height(300).crop('center').fit('clip').url() : `https://picsum.photos/200/300?id=${Math.floor(Math.random() * 100)}`}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = `https://picsum.photos/200/300?id=${Math.floor(Math.random() * 100)}`;
+            }}
             alt='Card image cap'
           />
         </div>
