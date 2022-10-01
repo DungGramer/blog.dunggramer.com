@@ -14,8 +14,8 @@
     "url": "git+https://github.com/DungGramer/blog.dunggramer.com.git"
   },
   "workspaces": [
-    "back-end/",
-    "front-end/"
+    "back-end",
+    "front-end"
   ],
   "keywords": [],
   "author": "DungGramer",
@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/DungGramer/blog.dunggramer.com#readme",
   "dependencies": {
-    "concurrently": "^7.4.0"
+    "@dunggramer/prettier": "^3.0.1",
+    "concurrently": "^7.4.0",
+    "date-fns": "^2.29.3"
   }
 }

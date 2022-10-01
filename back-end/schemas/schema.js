@@ -1,8 +1,8 @@
 // First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
+import createSchema from 'part:@sanity/base/schema-creator';
 
 // Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
+import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -16,7 +16,7 @@ export default createSchema({
         {
           name: 'name',
           type: 'string',
-          title: 'Name'
+          title: 'Name',
         },
         {
           name: 'username',
@@ -26,15 +26,14 @@ export default createSchema({
         {
           name: 'avatar',
           type: 'image',
-          title: 'Avatar'
+          title: 'Avatar',
         },
         {
           name: 'bio',
           type: 'text',
-          title: 'Bio'
+          title: 'Bio',
         },
-        
-      ]
+      ],
     },
     {
       name: 'blog',
@@ -45,12 +44,12 @@ export default createSchema({
           name: 'title',
           type: 'string',
           title: 'Title',
-          validation: Rule => Rule.required().min(10)
+          validation: (Rule) => Rule.required().min(3),
         },
         {
           name: 'subtitle',
           type: 'string',
-          title: 'Subtitle'
+          title: 'Subtitle',
         },
         {
           name: 'coverImage',
@@ -61,11 +60,11 @@ export default createSchema({
               name: 'alt',
               type: 'text',
               title: 'Description',
-            }
+            },
           ],
           options: {
-            hotspot: true
-          }
+            hotspot: true,
+          },
         },
         {
           name: 'content',
@@ -73,7 +72,7 @@ export default createSchema({
           title: 'Content',
           of: [
             {
-              type: 'block'
+              type: 'block',
             },
             {
               type: 'image',
@@ -84,54 +83,61 @@ export default createSchema({
                   type: 'string',
                   options: {
                     list: [
-                      {title: 'Center', value: 'center'},
-                      {title: 'Left', value: 'left'},
-                      {title: 'Right', value: 'right'},
+                      { title: 'Center', value: 'center' },
+                      { title: 'Left', value: 'left' },
+                      { title: 'Right', value: 'right' },
                     ],
                     layout: 'radio',
-                    isHighlighted: true
-                  }
+                    isHighlighted: true,
+                  },
                 },
                 {
                   name: 'alt',
                   type: 'text',
                   title: 'Alternative Text',
                   options: {
-                    isHighlighted: true
-                  }
-                }
-              ]
+                    isHighlighted: true,
+                  },
+                },
+              ],
             },
             {
               type: 'code',
               options: {
-                withFilename: true
-              }
-            }
+                withFilename: true,
+              },
+            },
           ],
           options: {
-            hotspot: true
-          }
+            hotspot: true,
+          },
         },
         {
           name: 'date',
           type: 'datetime',
           title: 'Date',
-          validation: Rule => Rule.required()
+          validation: (Rule) => Rule.required(),
         },
         {
           name: 'author',
           title: 'Author',
           type: 'reference',
-          to: {type: 'author'},
-          validation: Rule => Rule.required()
+          to: { type: 'author' },
+          validation: (Rule) => Rule.required(),
         },
         {
           name: 'slug',
           type: 'slug',
           title: 'Slug',
-        }
-      ]
-    }
+          options: {
+            source: (doc) => {
+              const date = new Date(doc.date).toISOString().slice(0, 10);
+              return `${date}/${doc.title}`;
+            },
+            slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+          },
+        },
+      ],
+    },
   ]),
-})
+});

@@ -1,12 +1,12 @@
-import BlogContent from "components/BlogContent";
-import BlogHeader from "components/BlogHeader";
-import PageLayout from "components/PageLayout";
-import { getAllBlogs, getBlogBySlug, urlFor } from "lib/api";
-import { Col, Row } from "react-bootstrap";
+import BlogContent from 'components/BlogContent';
+import BlogHeader from 'components/BlogHeader';
+import PageLayout from 'components/PageLayout';
+import { getAllBlogs, getBlogBySlug, urlFor } from 'lib/api';
+import { Col, Row } from 'react-bootstrap';
 
 const BlogDetail = ({ blog }) => {
   return (
-    <PageLayout className='blog-detail-page'>
+    <PageLayout className="blog-detail-page">
       <Row>
         <Col md={{ span: 10, offset: 1 }}>
           <BlogHeader
@@ -35,9 +35,9 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const blogs = await getAllBlogs();
-
+  const paths = blogs?.map((b) => ({ params: { slug: b.slug } }));
   return {
-    paths: blogs.map((blog) => ({ params: { slug: blog.slug } })),
+    paths,
     fallback: true,
   };
 }
