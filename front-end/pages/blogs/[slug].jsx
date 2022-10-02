@@ -1,10 +1,26 @@
-import BlogContent from 'components/BlogContent';
-import BlogHeader from 'components/BlogHeader';
 import PageLayout from 'components/PageLayout';
-import { getAllBlogs, getBlogBySlug, urlFor } from 'lib/api';
-import { Col, Row } from 'react-bootstrap';
+import BlogHeader from 'components/BlogHeader';
+import ErrorPage from 'next/error';
+import { getBlogBySlug, getAllBlogs } from 'lib/api';
+import { Row, Col } from 'react-bootstrap';
+import { urlFor } from 'lib/api';
+import moment from 'moment';
+import { useRouter } from 'next/router';
+
+import BlogContent from 'components/BlogContent';
 
 const BlogDetail = ({ blog }) => {
+  const router = useRouter();
+
+  if (!router.isFallback && !blog?.slug) {
+    return <ErrorPage statusCode="404" />;
+  }
+
+  if (router.isFallback) {
+    console.log('Loading fallback page');
+    return <PageLayout className="blog-detail-page">Loading...</PageLayout>;
+  }
+
   return (
     <PageLayout className="blog-detail-page">
       <Row>
@@ -12,12 +28,12 @@ const BlogDetail = ({ blog }) => {
           <BlogHeader
             title={blog.title}
             subtitle={blog.subtitle}
-            coverImage={blog.coverImage ? urlFor(blog.coverImage).height(600).url() : 'https://picsum.photos/1200/600'}
+            coverImage={urlFor(blog.coverImage).height(600).url()}
             author={blog.author}
-            date={blog.date}
+            date={moment(blog.date).format('LLL')}
           />
           <hr />
-          <BlogContent content={blog.content} />
+          {blog.content && <BlogContent content={blog.content} />}
         </Col>
       </Row>
     </PageLayout>
@@ -27,12 +43,11 @@ const BlogDetail = ({ blog }) => {
 export async function getStaticProps({ params }) {
   const blog = await getBlogBySlug(params.slug);
   return {
-    props: {
-      blog,
-    },
+    props: { blog },
   };
 }
 
+// TODO: Introduce fallback
 export async function getStaticPaths() {
   const blogs = await getAllBlogs();
   const paths = blogs?.map((b) => ({ params: { slug: b.slug } }));
