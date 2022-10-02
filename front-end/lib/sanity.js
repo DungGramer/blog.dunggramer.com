@@ -6,6 +6,12 @@ const options = {
   useCdn: process.env.NODE_ENV === 'production',
   token: process.env.SANITY_API_TOKEN,
   apiVersion: '2022-10-02',
-}
+};
+
+export const previewClient = sanityClient({
+  ...options,
+  useCdn: false,
+  token: process.env.SANITY_API_TOKEN,
+});
 
 export default sanityClient(options);

@@ -1,15 +1,20 @@
 import { useState } from 'react';
 
-import { Button, Col, Row } from 'react-bootstrap';
+import { Row, Button } from 'react-bootstrap';
 import PageLayout from 'components/PageLayout';
 import AuthorIntro from 'components/AuthorIntro';
 import FilteringMenu from 'components/FilteringMenu';
+import PreviewAlert from 'components/PreviewAlert';
 
-import { getAllBlogs, getPaginatedBlogs } from 'lib/api';
 import { useGetBlogsPages } from 'actions/pagination';
-import CardListItem from 'components/CardListItem';
+import { getPaginatedBlogs } from 'lib/api';
+
+import { Col } from 'react-bootstrap';
 import CardItem from 'components/CardItem';
-import { format } from 'date-fns';
+import CardItemBlank from 'components/CardItemBlank';
+import CardListItem from 'components/CardListItem';
+import CardListItemBlank from 'components/CardListItemBlank';
+import moment from 'moment';
 
 export const BlogList = ({ data = [], filter }) => {
   return data.map((page) =>
@@ -20,7 +25,7 @@ export const BlogList = ({ data = [], filter }) => {
             author={blog.author}
             title={blog.title}
             subtitle={blog.subtitle}
-            date={format(new Date(blog.date), 'LL')}
+            date={moment(blog.date).format('LL')}
             link={{
               href: '/blogs/[slug]',
               as: `/blogs/${blog.slug}`,
@@ -33,7 +38,7 @@ export const BlogList = ({ data = [], filter }) => {
             author={blog.author}
             title={blog.title}
             subtitle={blog.subtitle}
-            date={format(new Date(blog.date), 'LL')}
+            date={moment(blog.date).format('LL')}
             image={blog.coverImage}
             link={{
               href: '/blogs/[slug]',
