@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { Col, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import PageLayout from 'components/PageLayout';
 import AuthorIntro from 'components/AuthorIntro';
 import FilteringMenu from 'components/FilteringMenu';
 
-import { getAllBlogs } from 'lib/api';
+import { getAllBlogs, getPaginatedBlogs } from 'lib/api';
 import { useGetBlogsPages } from 'actions/pagination';
 import CardListItem from 'components/CardListItem';
 import CardItem from 'components/CardItem';
@@ -46,35 +46,48 @@ export const BlogList = ({ data = [], filter }) => {
   );
 };
 
-export default function Home({ blogs }) {
+export default function Home({ blogs, preview }) {
   const [filter, setFilter] = useState({
     view: { list: 0 },
+    date: { asc: 0 },
   });
 
   const { data, size, setSize, hitEnd } = useGetBlogsPages({ filter });
 
   return (
     <PageLayout>
+      {preview && <PreviewAlert />}
       <AuthorIntro />
       <FilteringMenu
         filter={filter}
-        onChange={(option, value) => {
-          setFilter({ ...filter, [option]: value });
-        }}
+        onChange={(option, value) => setFilter({ ...filter, [option]: value })}
       />
       <hr />
       <Row className="mb-5">
         <BlogList data={data || [blogs]} filter={filter} />
       </Row>
+      <div style={{ textAlign: 'center' }}>
+        <Button
+          onClick={() => setSize(size + 1)}
+          disabled={hitEnd}
+          size="lg"
+          variant="outline-secondary"
+        >
+          {/* {isLoadingMore ? '...' : isReachingEnd ? 'No more blogs' : 'More Blogs'} */}
+          Load More
+        </Button>
+      </div>
     </PageLayout>
   );
 }
 
-export async function getStaticProps() {
-  const blogs = await getAllBlogs();
+export async function getStaticProps({ preview = false }) {
+  const blogs = await getPaginatedBlogs({ offset: 0, date: 'desc' });
   return {
     props: {
       blogs,
+      preview,
     },
+    revalidate: 1,
   };
 }
