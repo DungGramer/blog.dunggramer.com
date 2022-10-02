@@ -7,7 +7,8 @@
   "scripts": {
     "fe": "yarn workspace @blog.dunggramer.com/front-end dev",
     "be": "yarn workspace @blog.dunggramer.com/back-end start",
-    "start": "concurrently \"yarn fe\" \"yarn be\""
+    "start": "concurrently \"yarn fe\" \"yarn be\"",
+    "build:be": "yarn workspace @blog.dunggramer.com/back-end build"
   },
   "repository": {
     "type": "git",
