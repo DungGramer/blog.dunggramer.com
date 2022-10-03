@@ -62,7 +62,7 @@ export default function Home({ blogs, preview }) {
   return (
     <PageLayout>
       {preview && <PreviewAlert />}
-      <AuthorIntro />
+      {/* <AuthorIntro /> */}
       <FilteringMenu
         filter={filter}
         onChange={(option, value) => setFilter({ ...filter, [option]: value })}

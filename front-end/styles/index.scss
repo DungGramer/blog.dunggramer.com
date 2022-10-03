@@ -1,5 +1,13 @@
 @import url('https://dunggramer.github.io/font-awesome-pro/css/all.min.css');
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 100%;
+}
+
 html,
 body {
   height: 100%;
@@ -8,6 +16,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   background-color: #f4f7f9;
+  overflow-x: hidden;
 }
 
 .clickable:hover {
@@ -434,4 +443,25 @@ blockquote {
   background-position: 0 0;
   background-origin: border-box;
   background-size: 2em;
+}
+
+.image-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  div,
+  span {
+    position: unset !important;
+  }
+
+  img {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
 }
