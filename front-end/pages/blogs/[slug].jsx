@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
-import PageLayout from 'components/PageLayout';
 import BlogHeader from 'components/BlogHeader';
-import ErrorPage from 'next/error';
-import { getBlogBySlug, getAllBlogs, onBlogUpdate } from 'lib/api';
-import { Row, Col } from 'react-bootstrap';
-import { urlFor } from 'lib/api';
-import moment from 'moment';
+import PageLayout from 'components/PageLayout';
+import { getAllBlogs, getBlogBySlug, onBlogUpdate, urlFor } from 'lib/api';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 
 import BlogContent from 'components/BlogContent';
 import PreviewAlert from 'components/PreviewAlert';
+import { format } from 'date-fns';
 
 const BlogDetail = ({ blog: initialBlog, preview }) => {
   const router = useRouter();
@@ -23,7 +21,7 @@ const BlogDetail = ({ blog: initialBlog, preview }) => {
       });
     }
 
-    return () => sub && sub.unsubscribe();
+    return () => sub?.unsubscribe();
   }, []);
 
   // if (!router.isFallback && !blog?.slug) {
@@ -42,9 +40,9 @@ const BlogDetail = ({ blog: initialBlog, preview }) => {
           <BlogHeader
             title={blog.title}
             subtitle={blog.subtitle}
-            coverImage={urlFor(blog.coverImage).height(600).url()}
+            coverImage={blog.coverImage ? urlFor(blog.coverImage).height(600).url() : 'https://picsum.photos/1200/600'}
             author={blog.author}
-            date={moment(blog.date).format('LL')}
+            date={format(new Date(blog.date), 'MMMM do, yyyy')}
           />
           <hr />
           {blog.content && <BlogContent content={blog.content} />}

@@ -1,12 +1,13 @@
 import { Card } from 'react-bootstrap';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CardListItem = ({ title, subtitle, author, link, date, mode = 'normal' }) => {
   return (
     <Card className={`fj-card fj-card-list ${mode}`}>
       <div className="card-body-wrapper">
         <Card.Header className="d-flex flex-row">
-          <img
+          <Image
             src={author?.avatar || 'https://via.placeholder.com/150'}
             className="rounded-circle mr-3"
             height="50px"

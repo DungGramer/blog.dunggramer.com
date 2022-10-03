@@ -8,7 +8,8 @@
     "fe": "yarn workspace @blog.dunggramer.com/front-end dev",
     "be": "yarn workspace @blog.dunggramer.com/back-end start",
     "start": "concurrently \"yarn fe\" \"yarn be\"",
-    "build:be": "yarn workspace @blog.dunggramer.com/back-end build"
+    "build:be": "yarn workspace @blog.dunggramer.com/back-end build",
+    "build:fe": "yarn workspace @blog.dunggramer.com/front-end build"
   },
   "repository": {
     "type": "git",

@@ -1,12 +1,11 @@
-import highlight from "highlight.js";
-import { createRef, useEffect } from "react";
-import { findDOMNode } from "react-dom";
+import highlight from 'highlight.js';
+import { createRef, useEffect } from 'react';
 
 const HighlightCode = ({ children, language }) => {
   const code = createRef();
 
   useEffect(() => {
-    highlight.highlightBlock(findDOMNode(code.current));
+    highlight.highlightBlock(code.current);
   }, []);
 
   return (

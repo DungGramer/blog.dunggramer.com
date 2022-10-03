@@ -1,13 +1,14 @@
 import { Card } from 'react-bootstrap';
 import Link from 'next/link';
 import { urlFor } from 'lib/api';
+import Image from 'next/image';
 
 const CardItem = ({ title, subtitle, image, date, author, link, mode = 'normal' }) => {
   return (
     <Card className={`fj-card ${mode}`}>
       <div className={`card-body-wrapper ${!image ? 'no-image' : ''}`}>
         <Card.Header className="d-flex flex-row">
-          <img
+          <Image
             src={author?.avatar || 'https://via.placeholder.com/150'}
             className="rounded-circle mr-3"
             height="50px"
