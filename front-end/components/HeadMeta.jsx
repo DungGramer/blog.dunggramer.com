@@ -79,8 +79,10 @@ const HeadMeta = () => {
       <meta name="search.language" content="en-US"></meta>
       <meta name="search.language" content="vi-VN"></meta>
 
-      {/* Google Search Console */}
+      {/*  Site verify  */}
       <meta name="google-site-verification" content="prwHdXoCEz9yDjKyiN97vzyHAFru5kzUSblYPBsWE8s" />
+      <meta name="yandex-verification" content="650229127428a5bb" />
+      <meta name="msvalidate.01" content="4AAE1F8A32556AEE16FAC231C9105817" />
 
 
       {/* Show Image even in text only mode */}

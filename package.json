@@ -9,7 +9,8 @@
     "be": "yarn workspace @blog.dunggramer.com/back-end start",
     "start": "concurrently \"yarn fe\" \"yarn be\"",
     "build:be": "yarn workspace @blog.dunggramer.com/back-end build",
-    "build:fe": "yarn workspace @blog.dunggramer.com/front-end build"
+    "build:fe": "yarn workspace @blog.dunggramer.com/front-end build",
+    "clean": "rimraf ./**/node_modules ./**/dist ./**/build ./**/yarn.lock ./**/yarn-error.log ./**/.next"
   },
   "repository": {
     "type": "git",

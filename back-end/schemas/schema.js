@@ -3,6 +3,9 @@ import createSchema from 'part:@sanity/base/schema-creator';
 
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type';
+import { toSlug } from '../utils';
+import contentMarkDown from './contentMarkDown';
+import content from './content';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -66,52 +69,8 @@ export default createSchema({
             hotspot: true,
           },
         },
-        {
-          name: 'content',
-          type: 'array',
-          title: 'Content',
-          of: [
-            {
-              type: 'block',
-            },
-            {
-              type: 'image',
-              fields: [
-                {
-                  title: 'Image Position',
-                  name: 'position',
-                  type: 'string',
-                  options: {
-                    list: [
-                      { title: 'Center', value: 'center' },
-                      { title: 'Left', value: 'left' },
-                      { title: 'Right', value: 'right' },
-                    ],
-                    layout: 'radio',
-                    isHighlighted: true,
-                  },
-                },
-                {
-                  name: 'alt',
-                  type: 'text',
-                  title: 'Alternative Text',
-                  options: {
-                    isHighlighted: true,
-                  },
-                },
-              ],
-            },
-            {
-              type: 'code',
-              options: {
-                withFilename: true,
-              },
-            },
-          ],
-          options: {
-            hotspot: true,
-          },
-        },
+        content,
+        // contentMarkDown,
         {
           name: 'date',
           type: 'datetime',
@@ -131,8 +90,9 @@ export default createSchema({
           title: 'Slug',
           options: {
             source: (doc) => {
-              const date = new Date(doc.date).toISOString().slice(0, 10);
-              return `${date}/${doc.title}`;
+              // const date = new Date(doc.date).toISOString().slice(0, 10);
+              // return `${date}/${doc.title}`;
+              return toSlug(doc.title);
             },
             slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
           },

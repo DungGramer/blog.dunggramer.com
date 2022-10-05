@@ -8,11 +8,12 @@ import { Col, Row } from 'react-bootstrap';
 import BlogContent from 'components/BlogContent';
 import PreviewAlert from 'components/PreviewAlert';
 import { format } from 'date-fns';
+import BlogContentMDX from 'components/BlogContentMDX';
 
 const BlogDetail = ({ blog: initialBlog, preview }) => {
   const router = useRouter();
   const [blog, setBlog] = useState(initialBlog);
-
+  
   useEffect(() => {
     let sub;
     if (preview) {
@@ -46,6 +47,7 @@ const BlogDetail = ({ blog: initialBlog, preview }) => {
           />
           <hr />
           {blog.content && <BlogContent content={blog.content} />}
+          {/* { blog.content && <BlogContentMDX content={blog.content} /> } */}
         </Col>
       </Row>
     </PageLayout>
