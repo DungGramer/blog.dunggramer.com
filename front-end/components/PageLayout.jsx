@@ -1,10 +1,15 @@
 import { Container } from 'react-bootstrap';
 import Navbar from './Navbar';
 import { useTheme } from 'providers/ThemeProvider';
+import Head from 'next/head';
 
 export default function PageLayout({ children, className }) {
   const { theme, toggleTheme } = useTheme();
   return (
+    <>
+    <Head>
+      <meta name='dmca-site-verification' content='cGtlak9odldLOUttMjEzKzJwNkovSTRLQVBxaVo3VjVpVU91UHlMbUR0Yz01' />
+    </Head>
     <div className={theme.type}>
       <Container>
         <Navbar theme={theme} toggleTheme={toggleTheme} />
@@ -31,5 +36,6 @@ export default function PageLayout({ children, className }) {
         `}
       </style>
     </div>
+    </>
   );
 }
