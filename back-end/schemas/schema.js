@@ -58,19 +58,12 @@ export default createSchema({
           name: 'coverImage',
           type: 'image',
           title: 'Cover Image',
-          fields: [
-            {
-              name: 'alt',
-              type: 'text',
-              title: 'Description',
-            },
-          ],
           options: {
             hotspot: true,
           },
         },
-        content,
-        // contentMarkDown,
+        // content,
+        contentMarkDown,
         {
           name: 'date',
           type: 'datetime',

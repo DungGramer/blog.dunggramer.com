@@ -14,4 +14,18 @@ export const previewClient = sanityClient({
   token: process.env.SANITY_API_TOKEN,
 });
 
+export async function getSanityContent({ query, variables = {}}) {
+  const { data } = await fetch('https://n902zx7u.api.sanity.io/v1/graphql/production/default', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json', 
+    },
+    body: JSON.stringify({
+      query,
+      variables,
+    })
+  }).then(res => res.json());
+
+  return data;
+}
 export default sanityClient(options);

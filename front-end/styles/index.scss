@@ -1,5 +1,9 @@
 @import url('https://dunggramer.github.io/font-awesome-pro/css/all.min.css');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
 }
