@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/DungGramer/blog.dunggramer.com#readme",
   "dependencies": {
-    "@dunggramer/prettier": "^3.0.1",
+    "@dunggramer/prettier": "^4.0.1",
     "concurrently": "^7.4.0",
     "date-fns": "^2.29.3"
   },
   "devDependencies": {
-    "nx": "15.0.0",
-    "@nrwl/nx-cloud": "latest"
+    "@nrwl/nx-cloud": "latest",
+    "nx": "15.0.0"
   }
 }

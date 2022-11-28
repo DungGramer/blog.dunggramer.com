@@ -1,36 +1,10 @@
-import BlockContent from '@sanity/block-content-to-react';
-import HighlightCode from 'components/HighlightCode';
-import { urlFor } from 'lib/api';
-import Image from 'next/image';
+import 'highlight.js/styles/atom-one-dark.css';
 
-const serializers = {
-  types: {
-    code: ({ node: { language, code, filename } }) => {
-      return (
-        <HighlightCode language={language}>
-          {code}
-          <div className="code-filename">{filename}</div>
-        </HighlightCode>
-      );
-    },
-    image: ({ node: { asset, alt, position = 'center' } }) => {
-      return (
-        <div className={`blog-image blog-image-${position}`}>
-          <div className="image-container">
-            <Image
-              src={urlFor(asset).height(600).fit('max').url()}
-              alt={alt}
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-          <div className="image-alt">{alt}</div>
-        </div>
-      );
-    },
-  },
-};
+import { getMDXComponent } from 'mdx-bundler/client';
+import { useMemo } from 'react';
 
-const BlogContent = ({ content }) => <BlockContent serializers={serializers} blocks={content} />;
+export default function BlogContent({ code, frontmatter }) {
+  const Component = useMemo(() => getMDXComponent(code), [code]);
 
-export default BlogContent;
+  return <Component />;
+}

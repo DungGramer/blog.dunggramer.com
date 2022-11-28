@@ -15,6 +15,8 @@ import CardItemBlank from 'components/CardItemBlank';
 import CardListItem from 'components/CardListItem';
 import CardListItemBlank from 'components/CardListItemBlank';
 import moment from 'moment';
+import { getSanityContent } from 'lib/sanity';
+import Link from 'next/link';
 
 export const BlogList = ({ data = [], filter }) => {
   return data.map((page) =>
@@ -85,6 +87,7 @@ export default function Home({ blogs, preview }) {
     </PageLayout>
   );
 }
+
 
 export async function getStaticProps({ preview = false }) {
   const blogs = await getPaginatedBlogs({ offset: 0, date: 'desc' });

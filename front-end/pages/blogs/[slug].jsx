@@ -8,12 +8,14 @@ import { Col, Row } from 'react-bootstrap';
 import BlogContent from 'components/BlogContent';
 import PreviewAlert from 'components/PreviewAlert';
 import { format } from 'date-fns';
-import BlogContentMDX from 'components/BlogContentMDX';
 
-const BlogDetail = ({ blog: initialBlog, preview }) => {
+import rehypeHighlight from 'rehype-highlight';
+import { bundleMDX } from 'mdx-bundler';
+
+const BlogDetail = ({ blog: initialBlog, content, preview }) => {
   const router = useRouter();
   const [blog, setBlog] = useState(initialBlog);
-  
+
   useEffect(() => {
     let sub;
     if (preview) {
@@ -41,13 +43,16 @@ const BlogDetail = ({ blog: initialBlog, preview }) => {
           <BlogHeader
             title={blog.title}
             subtitle={blog.subtitle}
-            coverImage={blog.coverImage ? urlFor(blog.coverImage).height(600).url() : 'https://picsum.photos/1200/600'}
+            coverImage={
+              blog.coverImage
+                ? urlFor(blog.coverImage).height(600).url()
+                : 'https://picsum.photos/1200/600'
+            }
             author={blog.author}
             date={format(new Date(blog.date), 'MMMM do, yyyy')}
           />
           <hr />
-          {blog.content && <BlogContent content={blog.content} />}
-          {/* { blog.content && <BlogContentMDX content={blog.content} /> } */}
+          {content && <BlogContent code={content.code} frontmatter={content.frontmatter} />}
         </Col>
       </Row>
     </PageLayout>
@@ -56,8 +61,18 @@ const BlogDetail = ({ blog: initialBlog, preview }) => {
 
 export async function getStaticProps({ params, preview = false, previewData }) {
   const blog = await getBlogBySlug(params.slug, preview);
+
+  const { code, frontmatter } = await bundleMDX({
+    source: blog.content,
+    mdxOptions({ rehypePlugins }) {
+      return {
+        rehypePlugins: [...(rehypePlugins ?? []), rehypeHighlight],
+      };
+    },
+  });
+
   return {
-    props: { blog, preview },
+    props: { blog, preview, content: { code, frontmatter } },
     revalidate: 1,
   };
 }
