@@ -1,15 +1,22 @@
 import { getSanityContent } from 'lib/sanity';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/atom-one-dark.css';
 
-export default function Page({ title, content, preview }) {
+import { bundleMDX } from 'mdx-bundler';
+import { getMDXComponent } from 'mdx-bundler/client';
+import { useMemo } from 'react';
+
+export default function Page({ code, frontmatter }) {
+  const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <div>
-      <h1>{title}</h1>
-      <MDXRemote {...content} />
-    </div>
+    <>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.description}</p>
+      <p>{frontmatter.date}</p>
+      <article>
+        <Component />
+      </article>
+    </>
   );
 }
 
@@ -30,15 +37,19 @@ export async function getStaticProps({ params }) {
 
   const [pageData] = data.allBlog;
 
-  const content = await serialize(pageData.content, {
-    mdxOptions: { rehypePlugins: [rehypeHighlight] },
+  const { code, frontmatter } = await bundleMDX({
+    source: pageData.content,
+    mdxOptions({ rehypePlugins }) {
+      return {
+        rehypePlugins: [...(rehypePlugins ?? []), rehypeHighlight],
+      };
+    },
   });
 
   return {
     props: {
-      pageData,
-      title: pageData.title,
-      content,
+      code,
+      frontmatter,
     },
   };
 }

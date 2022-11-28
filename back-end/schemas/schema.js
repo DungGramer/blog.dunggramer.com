@@ -5,7 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 import { toSlug } from '../utils';
 import contentMarkDown from './contentMarkDown';
-import content from './content';
+// import content from './content';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -50,11 +50,6 @@ export default createSchema({
           validation: (Rule) => Rule.required().min(3),
         },
         {
-          name: 'subtitle',
-          type: 'string',
-          title: 'Subtitle',
-        },
-        {
           name: 'coverImage',
           type: 'image',
           title: 'Cover Image',
@@ -90,6 +85,15 @@ export default createSchema({
             slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
           },
         },
+        {
+          name: 'tags',
+          type: 'array',
+          title: 'Tags',
+          of: [{ type: 'string' }],
+          options: {
+            layout: 'tags',
+          },
+        }
       ],
     },
   ]),

@@ -8,14 +8,17 @@ const options = {
   apiVersion: '2022-10-02',
 };
 
+
 export const previewClient = sanityClient({
   ...options,
   useCdn: false,
   token: process.env.SANITY_API_TOKEN,
 });
 
+const SANITY_URL = 'https://n902zx7u.api.sanity.io/v1/graphql/production/default';
+
 export async function getSanityContent({ query, variables = {}}) {
-  const { data } = await fetch('https://n902zx7u.api.sanity.io/v1/graphql/production/default', {
+  const { data } = await fetch(SANITY_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', 

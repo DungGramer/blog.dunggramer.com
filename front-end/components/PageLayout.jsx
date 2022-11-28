@@ -23,7 +23,7 @@ export default function PageLayout({ children, className }) {
               <a
                 href="//www.dmca.com/Protection/Status.aspx?ID=960e73fd-fc19-4354-a6f2-b4574158f75f&refurl=https://blog.dunggramer.com/"
                 title="DMCA.com Protection Status"
-                class="dmca-badge"
+                className="dmca-badge"
               >
                 {' '}
                 <img

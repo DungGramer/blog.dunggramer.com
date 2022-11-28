@@ -1,5 +1,5 @@
-import client, { previewClient } from './sanity';
 import imageUrlBuilder from '@sanity/image-url';
+import client, { previewClient } from './sanity';
 
 const blogFields = `
   title,
@@ -49,7 +49,7 @@ export async function getBlogBySlug(slug, preview) {
     .fetch(
       `*[_type == "blog" && slug.current == $slug] {
       ${blogFields}
-      content[]{..., "asset": asset->}
+      content
     }`,
       { slug }
     )

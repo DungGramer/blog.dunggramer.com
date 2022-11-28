@@ -33,23 +33,23 @@ const HeadMeta = () => {
       <meta property="twitter:image" content="https://cdn.sanity.io/images/n902zx7u/production/5fcdfce17d601928819b14a54dd7c869ff2bef85-851x700.jpg" />
 
       {/* Google + tags */}
-      <meta itemprop="name" content="DungGramer Blog" />
-      <meta itemprop="description" content="This is friendly blog I share my knowledge of Front-end developers, focus on JavaScript, React, CSS, and more!" />
-      <meta itemprop="image" content="https://cdn.sanity.io/images/n902zx7u/production/5fcdfce17d601928819b14a54dd7c869ff2bef85-851x700.jpg" />
+      <meta itemProp="name" content="DungGramer Blog" />
+      <meta itemProp="description" content="This is friendly blog I share my knowledge of Front-end developers, focus on JavaScript, React, CSS, and more!" />
+      <meta itemProp="image" content="https://cdn.sanity.io/images/n902zx7u/production/5fcdfce17d601928819b14a54dd7c869ff2bef85-851x700.jpg" />
 
       {/* Swift tags */}
-      <meta class="swiftype" name="title" data-type="string" content="DungGramer Blog" />
-      <meta class="swiftype" name="body" data-type="text" content="This is friendly blog I share my knowledge of Front-end developers, focus on JavaScript, React, CSS, and more!" />
-      <meta class="swiftype" name="url" data-type="enum" content="https://blog.dunggramer.com/" />
-      <meta class="swiftype" name="tags" data-type="string" content="react" />
-      <meta class="swiftype" name="tags" data-type="string" content="reactjs" />
-      <meta class="swiftype" name="tags" data-type="string" content="react component" />
-      <meta class="swiftype" name="tags" data-type="string" content="css" />
-      <meta class="swiftype" name="tags" data-type="string" content="js" />
-      <meta class="swiftype" name="tags" data-type="string" content="javascript" />
+      <meta className="swiftype" name="title" data-type="string" content="DungGramer Blog" />
+      <meta className="swiftype" name="body" data-type="text" content="This is friendly blog I share my knowledge of Front-end developers, focus on JavaScript, React, CSS, and more!" />
+      <meta className="swiftype" name="url" data-type="enum" content="https://blog.dunggramer.com/" />
+      <meta className="swiftype" name="tags" data-type="string" content="react" />
+      <meta className="swiftype" name="tags" data-type="string" content="reactjs" />
+      <meta className="swiftype" name="tags" data-type="string" content="react component" />
+      <meta className="swiftype" name="tags" data-type="string" content="css" />
+      <meta className="swiftype" name="tags" data-type="string" content="js" />
+      <meta className="swiftype" name="tags" data-type="string" content="javascript" />
 
       {/* Configuring prefetching */}
-      {/* <meta http-equiv="x-dns-prefetch-control" content="on"/> */}
+      {/* <meta httpEquiv="x-dns-prefetch-control" content="on"/> */}
       {/* <link rel="dns-prefetch" href="http://example.com"></link> */}
 
       {/* Orientation */}
@@ -62,8 +62,8 @@ const HeadMeta = () => {
 
       {/* IE */}
       <meta name="renderer" content="webkit|ie-comp|ie_stand" />
-      <meta http-equiv="x-ua-compatible" content="ie=edge" />
-      <meta http-equiv="cleartype" content="on" />
+      <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+      <meta httpEquiv="cleartype" content="on" />
 
       {/* UC Mobile Browser */}
       {/* Display this page in fullscreen */}
