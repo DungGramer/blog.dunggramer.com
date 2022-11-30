@@ -1,0 +1,7 @@
+/* A mixin that disables the action of a user. */
+@mixin disable-action() {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: context-menu;
+  pointer-events: none;
+}

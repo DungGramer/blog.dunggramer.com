@@ -1,0 +1,21 @@
+/* stylelint-disable media-feature-name-no-unknown */
+/* stylelint-disable media-feature-name-no-vendor-prefix */
+@mixin retina-screen() {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/#{1}),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin ipad-screen() {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}

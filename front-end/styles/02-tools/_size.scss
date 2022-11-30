@@ -1,0 +1,18 @@
+/**
+ * A mixin that sets the width and height of an element. If the height is not specified, it will be the same as the width.
+ * @example
+ * @include size(100px); | width: 100px; height: 100px;
+ * @include size(100px, 200px); | width: 100px; height: 200px;
+ */
+
+@mixin size($width, $height: false) {
+  @if $height == false {
+    height: $width;
+  }
+
+  @else {
+    height: $height;
+  }
+
+  width: $width;
+}

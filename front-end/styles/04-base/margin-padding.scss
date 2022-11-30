@@ -1,0 +1,22 @@
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+$spaceAmounts: (0, 4, 8, 16, 24, 32, 48, 64, 96, 128, 256);
+$sides: (top, right, bottom, left);
+
+@each $side in $sides {
+  @each $amount in $spaceAmounts {
+    .m-#{$side}-#{$amount} {
+      margin-#{$side}: #{$amount}px !important;
+    }
+
+    .p-#{$side}-#{$amount} {
+      padding-#{$side}: #{$amount}px !important;
+    }
+  }
+}

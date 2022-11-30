@@ -1,0 +1,146 @@
+@mixin query-min($breakpoint) {
+  @if $breakpoint != 0 {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+@mixin query-max($breakpoint) {
+  @if $breakpoint and $breakpoint > 0 {
+    @media (max-width: $breakpoint - 1) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+/* Mobile: 320px */
+@mixin query-min-mobile() {
+  @media (min-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin query-max-mobile() {
+  @media (max-width: $breakpoint-mobile - 1) {
+    @content;
+  }
+}
+
+
+/* Phablet: 640px */
+@mixin query-min-phablet() {
+  @media (min-width: $breakpoint-phablet) {
+    @content;
+  }
+}
+
+@mixin query-max-phablet() {
+  @media (max-width: $breakpoint-phablet - 1) {
+    @content;
+  }
+}
+
+
+/* Tablet: 768px */
+@mixin query-min-tablet() {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin query-max-tablet() {
+  @media (max-width: $breakpoint-tablet - 1) {
+    @content;
+  }
+}
+
+/* Tablet Landscape: 992px */
+@mixin query-min-tablet-landscape() {
+  @media (min-width: $breakpoint-tablet-landscape) {
+    @content;
+  }
+}
+
+@mixin query-max-tablet-landscape() {
+  @media (max-width: $breakpoint-tablet-landscape - 1) {
+    @content;
+  }
+}
+
+/* Laptop: 1024px */
+@mixin query-min-laptop() {
+  @media (min-width: $breakpoint-laptop) {
+    @content;
+  }
+}
+
+@mixin query-max-laptop() {
+  @media (max-width: $breakpoint-laptop - 1) {
+    @content;
+  }
+}
+
+
+/* Desktop: 1280px */
+@mixin query-min-desktop() {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin query-max-desktop() {
+  @media (max-width: $breakpoint-desktop - 1) {
+    @content;
+  }
+}
+
+
+/* HD: 1920px */
+@mixin query-min-hd() {
+  @media (min-width: $breakpoint-hd) {
+    @content;
+  }
+}
+
+@mixin query-max-hd() {
+  @media (max-width: $breakpoint-hd - 1) {
+    @content;
+  }
+}
+
+
+/* 2K: 2560px */
+@mixin query-min-2k() {
+  @media (min-width: $breakpoint-2k) {
+    @content;
+  }
+}
+
+@mixin query-max-2k() {
+  @media (max-width: $breakpoint-2k - 1) {
+    @content;
+  }
+}
+
+
+/* 4K: 3840px */
+@mixin query-min-4k() {
+  @media (min-width: $breakpoint-4k) {
+    @content;
+  }
+}
+
+@mixin query-max-4k() {
+  @media (max-width: $breakpoint-4k - 1) {
+    @content;
+  }
+}

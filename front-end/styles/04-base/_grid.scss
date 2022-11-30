@@ -1,0 +1,32 @@
+.container {
+  @include container-fixed;
+
+  @include query-min-tablet {
+    width: $breakpoint-tablet;
+  }
+
+  @include query-min-tablet-landscape {
+    width: $breakpoint-tablet-landscape;
+  }
+
+  @include query-min-desktop {
+    width: $breakpoint-desktop;
+  }
+}
+
+/* Fixed width containers, but without any defined width. */
+.container-fluid {
+  @include container-fixed;
+}
+
+
+/* Rows contain your columns */
+.row {
+  @include make-row();
+
+  > * {
+    @include make-col-ready();
+  }
+}
+
+@include make-grid-columns();

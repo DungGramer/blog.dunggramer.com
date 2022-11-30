@@ -1,0 +1,33 @@
+@function responsive-ratio($x, $y) {
+  @return unquote(($y / $x) * 100 + '%');
+}
+
+/**
+ * Aspect Ratio
+ * Usage:
+   @include aspect-ratio(16,9);
+   @include aspect-ratio(4,3);
+   @include aspect-ratio(4,4, true);
+*/
+
+@mixin aspect-ratio($x, $y, $pseudo: false) {
+  $padding: responsive-ratio($x, $y);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @if $pseudo {
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: $padding;
+    }
+  }
+
+  @else {
+    padding-top: $padding;
+  }
+}
+

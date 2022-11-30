@@ -1,0 +1,17 @@
+.font {
+  &-base {
+    font-family: $font-base;
+  }
+
+  &-sans {
+    font-family: $font-sans;
+  }
+
+  &-serif {
+    font-family: $font-serif;
+  }
+
+  &-monospace {
+    font-family: $font-monospace;
+  }
+}

@@ -1,0 +1,27 @@
+// Baseline grid lines height.
+// Every spacing metric should be based on this.
+$global-baseline: .375rem !default; //6px
+
+// Each value should be an unitless integer.
+$global-spacing-factor-tiny: 1 !default; // 6px
+$global-spacing-factor-small: 2 !default; // 12px
+$global-spacing-factor: 4 !default; // 24px
+$global-spacing-factor-large: 8 !default; // 48px
+$global-spacing-factor-huge: 16 !default; // 96px
+
+$global-spacing: $global-baseline * $global-spacing-factor !default;
+$global-spacing-tiny: $global-baseline * $global-spacing-factor-tiny !default;
+$global-spacing-small: $global-baseline * $global-spacing-factor-small !default;
+$global-spacing-large: $global-baseline * $global-spacing-factor-large !default;
+$global-spacing-huge: $global-baseline * $global-spacing-factor-huge !default;
+
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: calc($spacer / 4),
+  2: calc($spacer / 2),
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;

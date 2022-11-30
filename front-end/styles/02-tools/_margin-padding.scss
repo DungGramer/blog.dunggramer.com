@@ -1,0 +1,47 @@
+@mixin padding-vertical($top, $bottom: false) {
+  @if $bottom == false {
+    padding-bottom: $top;
+  }
+
+  @else {
+    padding-bottom: $bottom;
+  }
+
+  padding-top: $top;
+}
+
+@mixin padding-horizontal($left, $right: false) {
+  @if $right == false {
+    padding-right: $left;
+  }
+
+  @else {
+    padding-right: $right;
+  }
+
+  padding-left: $left;
+}
+
+@mixin margin-vertical($top, $bottom: false) {
+  @if $bottom == false {
+    margin-bottom: $top;
+  }
+
+  @else {
+    margin-bottom: $bottom;
+  }
+
+  margin-top: $top;
+}
+
+@mixin margin-horizontal($left, $right: false) {
+  @if $right == false {
+    margin-right: $left;
+  }
+
+  @else {
+    margin-right: $right;
+  }
+
+  margin-left: $left;
+}

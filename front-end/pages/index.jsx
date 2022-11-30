@@ -1,22 +1,17 @@
 import { useState } from 'react';
 
-import { Row, Button } from 'react-bootstrap';
-import PageLayout from 'components/PageLayout';
-import AuthorIntro from 'components/AuthorIntro';
 import FilteringMenu from 'components/FilteringMenu';
+import PageLayout from 'components/PageLayout';
 import PreviewAlert from 'components/PreviewAlert';
+import { Button, Row } from 'react-bootstrap';
 
 import { useGetBlogsPages } from 'actions/pagination';
 import { getPaginatedBlogs } from 'lib/api';
 
-import { Col } from 'react-bootstrap';
 import CardItem from 'components/CardItem';
-import CardItemBlank from 'components/CardItemBlank';
 import CardListItem from 'components/CardListItem';
-import CardListItemBlank from 'components/CardListItemBlank';
 import moment from 'moment';
-import { getSanityContent } from 'lib/sanity';
-import Link from 'next/link';
+import { Col } from 'react-bootstrap';
 
 export const BlogList = ({ data = [], filter }) => {
   return data.map((page) =>

@@ -1,0 +1,13 @@
+@import url('https://dunggramer.github.io/font-awesome-pro/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '01-settings/dir';
+@import '02-tools/dir';
+@import '03-generic/dir';
+@import '04-base/dir';
+@import '05-objects/dir';
+@import '06-components/dir';
+@import '07-utilities/dir';

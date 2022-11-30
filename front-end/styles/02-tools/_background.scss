@@ -1,0 +1,19 @@
+/*
+ * Using for Retina Screen - x2 Image
+ background: url("my-image.png") no-repeat;
+ @include retina-image("my-image2x.png", 1000px, 500px);
+*/
+
+@mixin retina-image($image, $width, $height) {
+  @include retina-screen() {
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+@mixin cover-background($image-src) {
+  background-image: url($image-src);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

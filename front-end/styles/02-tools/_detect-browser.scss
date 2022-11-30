@@ -1,0 +1,31 @@
+@mixin isFirefox() {
+  @supports (-moz-appearance: meterbar) {
+    @content;
+  }
+}
+
+@mixin isSafari() {
+  @supports (not (translate: none)) {
+    @content;
+  }
+}
+
+@mixin isChrome() {
+  @supports (translate: none) {
+    @content;
+  }
+}
+
+@mixin isEdge() {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+@mixin isIE() {
+  @media screen {
+    @media (min-width: 0) {
+      @content;
+    }
+  }
+}

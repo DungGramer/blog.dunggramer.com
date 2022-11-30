@@ -1,0 +1,5 @@
+@use 'sass:meta';
+@use '../01-settings/colors' as colors;
+$colors: meta.module-variables('colors');
+
+@include add-css-variables($colors);

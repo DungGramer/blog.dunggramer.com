@@ -1,0 +1,30 @@
+$breakpoint-mobile          : 320px;
+$breakpoint-phablet         : 640px;
+$breakpoint-tablet          : 768px;
+$breakpoint-tablet-landscape: 992px;
+$breakpoint-laptop          : 1024px;
+$breakpoint-desktop         : 1280px;
+$breakpoint-hd              : 1920px;
+$breakpoint-2k              : 2560px;
+$breakpoint-4k              : 3840px;
+
+$breakpoints: (
+  mobile          : $breakpoint-mobile,
+  phablet         : $breakpoint-phablet,
+  tablet          : $breakpoint-tablet,
+  tablet-landscape: $breakpoint-tablet-landscape,
+  laptop          : $breakpoint-laptop,
+  desktop         : $breakpoint-desktop,
+  hd              : $breakpoint-hd,
+  2k              : $breakpoint-2k,
+  4k              : $breakpoint-4k,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;

@@ -1,0 +1,20 @@
+/*
+ * A mixin that adds SCSS variable to css variables at root.
+ * @param {meta.module-variables} $name - Variable name.
+ *
+ * @example
+ * @use "sass:meta";
+ * @use "colors.scss" as colors;
+ * $colors: meta.module-variables('colors');
+ * @include add-css-variables($colors);
+*/
+
+
+@mixin add-css-variables($module) {
+  :root {
+    @each $name, $value in $module {
+      --#{$name}: #{$value};
+    }
+  }
+}
+

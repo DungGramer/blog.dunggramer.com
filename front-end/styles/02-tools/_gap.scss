@@ -1,0 +1,67 @@
+@mixin gap($row: 0, $column: false) {
+  @if $column == false {
+    @include isSafari() {
+      margin-top: calc(-1 * #{$row});
+      margin-left: calc(-1 * #{$row});
+
+      & > * {
+        margin-top: $row;
+        margin-left: $row;
+      }
+    }
+
+    @supports (gap: 10px) and (display: flex) {
+      gap: $row;
+    }
+  }
+
+  @else {
+    @include isSafari() {
+      margin-top: calc(-1 * #{$row});
+      margin-left: calc(-1 * #{$column});
+
+      & > * {
+        margin-top: $row;
+        margin-left: $column;
+      }
+    }
+
+    @supports (gap: 10px) and (display: flex) {
+      gap: $row $column;
+    }
+  }
+}
+
+@mixin grid-gap($row: 0, $column: false) {
+  @if $column == false {
+    @include isSafari() {
+      margin-top: calc(-1 * #{$row});
+      margin-left: calc(-1 * #{$row});
+
+      & > * {
+        margin-top: $row;
+        margin-left: $row;
+      }
+    }
+
+    @supports (grid-gap: 10px) and (display: grid) {
+      grid-gap: $row;
+    }
+  }
+
+  @else {
+    @include isSafari() {
+      margin-top: calc(-1 * #{$row});
+      margin-left: calc(-1 * #{$column});
+
+      & > * {
+        margin-top: $row;
+        margin-left: $column;
+      }
+    }
+
+    @supports (grid-gap: 10px) and (display: grid) {
+      grid-gap: $row $column;
+    }
+  }
+}

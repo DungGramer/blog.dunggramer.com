@@ -1,0 +1,19 @@
+@use 'sass:map';
+/* stylelint-disable max-line-length */
+
+/* Number of columns in the grid. */
+$grid-columns    : 12 !default;
+$grid-row-columns: 6 !default;
+$gutters: $spacers !default;
+
+/* Padding between columns. Gets divided in half for the left and right. */
+$grid-gutter-width: 24px !default; //24px
+
+/* Point at which the grid un-collapses. */
+$grid-breakpoint-collapse: map.get($breakpoints, tablet) !default;
+
+
+/* Container */
+$container-tablet: (
+  ($grid-breakpoint-collapse - ($grid-gutter-width * 2)) + $grid-gutter-width
+) !default;
