@@ -5,12 +5,18 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import BlogContent from 'components/BlogContent';
 import PreviewAlert from 'components/PreviewAlert';
 import { format } from 'date-fns';
 
 import rehypeHighlight from 'rehype-highlight';
 import { bundleMDX } from 'mdx-bundler';
+
+import dynamic from 'next/dynamic';
+
+const BlogContentCSR = dynamic(
+  () => import('components/BlogContent'),
+  { ssr: false }
+)
 
 const BlogDetail = ({ blog: initialBlog, content, preview }) => {
   const router = useRouter();
@@ -52,7 +58,7 @@ const BlogDetail = ({ blog: initialBlog, content, preview }) => {
             date={format(new Date(blog.date), 'MMMM do, yyyy')}
           />
           <hr />
-          {content && <BlogContent code={content.code} frontmatter={content.frontmatter} />}
+          {content && <BlogContentCSR code={content.code} frontmatter={content.frontmatter} />}
         </Col>
       </Row>
     </PageLayout>
