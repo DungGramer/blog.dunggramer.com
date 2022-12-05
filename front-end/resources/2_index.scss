@@ -1,12 +1,9 @@
-This looks like a SCSS file.Beautify Now!No,
-thanks. html,
 body {
   height: 100%;
   font-family: Nunito, sans-serif;
-  font-style: normal;
   font-size: 14px;
+  font-style: normal;
   font-weight: 300;
-  background-color: #f4f7f9;
 }
 
 .clickable:hover {
@@ -14,7 +11,7 @@ body {
 }
 
 .hoverable:hover {
-  opacity: 0.7;
+  opacity: .7;
 }
 
 .red-text {
@@ -28,14 +25,14 @@ body {
 .card.fj-card {
   // padding-top: 50px;
   .card-body-wrapper {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 2px 5px 25px rgba(0, 0, 0, 0.15);
-    min-height: 280px;
     position: relative;
     z-index: 2;
+    min-height: 280px;
     padding: 20px;
     padding-bottom: 40px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 2px 5px 25px rgb(0 0 0 / 15%);
 
     &.no-image {
       min-height: auto;
@@ -43,11 +40,11 @@ body {
   }
 
   .card-body {
-    padding: 15px 0px 0px;
+    padding: 15px 0 0;
 
     .card-title {
-      font-weight: bold;
       margin-bottom: 3px;
+      font-weight: bold;
     }
   }
 
@@ -60,48 +57,49 @@ body {
   }
 
   .card-header {
+    padding: 0 0 15px;
     background-color: transparent;
-    padding: 0px 0px 15px;
+
     img {
       --size: 45px;
-      background-color: #fff;
-      border: 1px solid #464646;
-      border-radius: 50%;
       // box-shadow: 2px 5px 25px rgba(0, 0, 0, .15);
       // left: 10px;
       // position: absolute;
       top: calc(-1 * (var(--size) / 2));
-      width: var(--size);
       height: var(--size);
+      width: var(--size);
+      border: 1px solid #464646;
+      border-radius: 50%;
+      background-color: #fff;
     }
   }
 
   .card-button {
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: var(--font-family-primary);
-    font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 0.15rem;
-    padding-top: 1.5rem !important /* @TODO temp !!!*/;
-    padding: 0.75rem 1.5rem;
-    background-color: hsl(210, 5%, 41%);
-    border-color: hsl(210, 5%, 36%);
-    box-shadow: 0 5px 0 hsl(210, 5%, 20%);
-    bottom: -45px;
     position: absolute;
     right: 1.5rem;
-    -webkit-transition: -webkit-transform 0.2s;
-    transition: -webkit-transform 0.2s;
-    transition: transform 0.2s;
-    transition: transform 0.2s, -webkit-transform 0.2s;
+    bottom: -45px;
+    padding: .75rem 1.5rem;
+    padding-top: 1.5rem !important /* @TODO temp !!!*/;
+    border-color: hsl(210deg 5% 36%);
+    border-radius: 10px;
+    font-family: var(--font-family-primary);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: .15rem;
+    color: #fff;
+    background-color: hsl(210deg 5% 41%);
+    box-shadow: 0 5px 0 hsl(210deg 5% 20%);
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
 
     &:hover {
-      background-color: hsl(210, 5%, 51%);
-      border-color: hsl(210, 5%, 41%);
-      -webkit-transform: translateY(0.25rem);
-      transform: translateY(0.25rem);
+      border-color: hsl(210deg 5% 41%);
+      background-color: hsl(210deg 5% 51%);
+      -webkit-transform: translateY(.25rem);
+      transform: translateY(.25rem);
     }
   }
 
@@ -115,14 +113,15 @@ body {
     }
 
     .card-header {
-      background-color: transparent;
       padding-bottom: 5px;
+      background-color: transparent;
     }
   }
 }
 
 .card.fj-card.placeholder {
   color: transparent;
+
   .image-placeholder {
     height: 200px;
     width: 100%;
@@ -143,32 +142,32 @@ body {
 // HEADER STARTS
 .fj-navbar.fj-nav-base {
   width: 100%;
-  padding: 20px 0px;
+  padding: 20px 0;
 
   .fj-navbar {
     &-brand {
-      color: black;
       font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
       font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: black;
 
       a {
-        color: black;
         font-weight: 900;
+        color: black;
       }
     }
 
     &-item {
-      margin-left: 10px;
       margin-right: 10px;
+      margin-left: 10px;
     }
 
     &-link {
-      color: black;
-      letter-spacing: 0.8px;
       font-size: 18px;
+      letter-spacing: .8px;
       text-transform: uppercase;
+      color: black;
 
       &.active {
         color: #dba919;
@@ -191,9 +190,9 @@ body {
     }
 
     .fj-dropdown-toggle {
-      color: white;
-      margin-left: 10px;
       margin-right: 10px;
+      margin-left: 10px;
+      color: white;
     }
   }
 }
@@ -229,10 +228,10 @@ body {
 
 .code-filename,
 .image-alt {
-  opacity: 0.6;
   margin-top: 10px;
-  font-style: italic;
   font-size: 14px;
+  font-style: italic;
+  opacity: .6;
 }
 
 .blog-image {
@@ -261,6 +260,7 @@ body {
     .lead {
       font-size: 17px;
     }
+
     &-title {
       font-size: 52px;
     }
@@ -276,10 +276,11 @@ body {
 .dark {
   .card.fj-card {
     background-color: #232129;
-    transition: color 0s ease-out 0s, background 0.2s ease-out 0s;
+    transition: color 0s ease-out 0s, background .2s ease-out 0s;
+
     .card-body-wrapper {
       background-color: #232129;
-      transition: color 0s ease-out 0s, background 0.2s ease-out 0s;
+      transition: color 0s ease-out 0s, background .2s ease-out 0s;
     }
 
     .card-button {
@@ -289,15 +290,15 @@ body {
 
   .fj-navbar.fj-nav-base {
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 0;
 
     .fj-navbar {
       &-brand {
-        color: #ffffff;
+        color: #fff;
       }
 
       &-link {
-        color: #ffffff;
+        color: #fff;
       }
     }
   }
@@ -312,6 +313,7 @@ body {
 
   .react-toggle-track {
     background-color: black;
+
     &:hover {
       background-color: black;
     }
@@ -319,12 +321,12 @@ body {
     &-x,
     &-check {
       right: 8px;
-      width: 15px;
       height: 15px;
+      width: 15px;
 
       svg {
-        width: 100%;
         height: 100%;
+        width: 100%;
       }
     }
   }

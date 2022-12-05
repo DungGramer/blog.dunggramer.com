@@ -19,6 +19,7 @@ module.exports = {
         'baseIndentLevel': 0,
       },
     ],
+    'import-notation': null,
     'no-eol-whitespace': [
       true,
       {

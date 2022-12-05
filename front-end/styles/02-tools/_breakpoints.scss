@@ -1,3 +1,5 @@
+@import 'styles/01-settings/breakpoints';
+
 @mixin query-min($breakpoint) {
   @if $breakpoint != 0 {
     @media (min-width: $breakpoint) {
@@ -65,7 +67,7 @@
 
 /* Tablet Landscape: 992px */
 @mixin query-min-tablet-landscape() {
-  @media (min-width: $breakpoint-tablet-landscape) {
+  @media only screen and (min-width: $breakpoint-tablet-landscape) {
     @content;
   }
 }

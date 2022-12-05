@@ -3,8 +3,8 @@ import { createContext } from 'react';
 export const themes = {
   light: {
     type: 'light',
-    fontColor: '#2b2c38',
-    background: '#f4f7f9',
+    fontColor: 'var(--secondary-800)',
+    background: 'var(--primary-25)',
   },
   dark: {
     type: 'dark',

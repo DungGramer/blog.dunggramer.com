@@ -1,5 +1,25 @@
 @use 'sass:map';
-/* stylelint-disable max-line-length */
+
+$breakpoints: (
+  mobile          : $breakpoint-mobile,
+  phablet         : $breakpoint-phablet,
+  tablet          : $breakpoint-tablet,
+  tablet-landscape: $breakpoint-tablet-landscape,
+  laptop          : $breakpoint-laptop,
+  desktop         : $breakpoint-desktop,
+  hd              : $breakpoint-hd,
+  2k              : $breakpoint-2k,
+  4k              : $breakpoint-4k,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
 
 /* Number of columns in the grid. */
 $grid-columns    : 12 !default;

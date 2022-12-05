@@ -1,0 +1,9 @@
+@use 'sass:meta';
+@use '../01-settings/colors' as colors;
+@use '../01-settings/breakpoints' as breakpoints;
+
+$colors: meta.module-variables('colors');
+$breakpoint: meta.module-variables('breakpoints');
+
+@include add-css-variables($colors);
+@include add-css-variables($breakpoint);
