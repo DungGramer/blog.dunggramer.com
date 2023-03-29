@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 import { toSlug } from '../utils';
 import contentMarkDown from './contentMarkDown';
+import content from './content';
 // import content from './content';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -47,6 +48,7 @@ export default createSchema({
           name: 'title',
           type: 'string',
           title: 'Title',
+          i18n: true,
           validation: (Rule) => Rule.required().min(3),
         },
         {
@@ -58,7 +60,8 @@ export default createSchema({
           },
         },
         // content,
-        contentMarkDown,
+        // contentMarkDown,
+        content,
         {
           name: 'date',
           type: 'datetime',

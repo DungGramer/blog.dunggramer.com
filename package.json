@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "fe": "yarn workspace @blog.dunggramer.com/front-end dev",
-    "be": "yarn workspace @blog.dunggramer.com/back-end start",
+    "be": "yarn workspace backend dev",
     "start": "concurrently \"yarn fe\" \"yarn be\"",
-    "build:be": "yarn workspace @blog.dunggramer.com/back-end build",
+    "build:be": "yarn workspace backend build",
     "build:fe": "yarn workspace @blog.dunggramer.com/front-end build",
     "clean": "rimraf ./**/node_modules ./**/dist ./**/build ./**/yarn.lock ./**/yarn-error.log ./**/.next"
   },
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/DungGramer/blog.dunggramer.com.git"
   },
   "workspaces": [
-    "back-end",
+    "backend",
     "front-end"
   ],
   "keywords": [],

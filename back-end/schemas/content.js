@@ -3,9 +3,7 @@ export default {
   type: 'array',
   title: 'Content',
   of: [
-    {
-      type: 'block',
-    },
+    { type: 'block' },
     {
       type: 'image',
       fields: [
