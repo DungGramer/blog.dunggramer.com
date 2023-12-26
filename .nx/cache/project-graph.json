@@ -1,5 +1,140 @@
 {
   "nodes": {
+    "frontend-e2e": {
+      "name": "frontend-e2e",
+      "type": "lib",
+      "data": {
+        "root": "frontend-e2e",
+        "name": "frontend-e2e",
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "frontend-e2e/src",
+        "targets": {
+          "e2e": {
+            "executor": "@nx/playwright:playwright",
+            "outputs": [
+              "{workspaceRoot}/dist/.playwright/frontend-e2e"
+            ],
+            "options": {
+              "config": "frontend-e2e/playwright.config.ts"
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "cache": true,
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore",
+              "{workspaceRoot}/eslint.config.js"
+            ],
+            "executor": "@nx/eslint:lint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "implicitDependencies": [
+          "frontend"
+        ],
+        "tags": []
+      }
+    },
+    "frontend": {
+      "name": "frontend",
+      "type": "app",
+      "data": {
+        "root": "frontend",
+        "name": "frontend",
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "frontend",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "cache": true,
+            "executor": "@nx/next:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "outputPath": "dist/frontend"
+            },
+            "configurations": {
+              "development": {
+                "outputPath": "frontend"
+              },
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "frontend:build",
+              "dev": true
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "frontend:build:development",
+                "dev": true
+              },
+              "production": {
+                "buildTarget": "frontend:build:production",
+                "dev": false
+              }
+            }
+          },
+          "export": {
+            "executor": "@nx/next:export",
+            "options": {
+              "buildTarget": "frontend:build:production"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "cache": true,
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "passWithNoTests": true,
+              "jestConfig": "frontend/jest.config.ts"
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          },
+          "lint": {
+            "cache": true,
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore",
+              "{workspaceRoot}/eslint.config.js"
+            ],
+            "executor": "@nx/eslint:lint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
     "backend": {
       "name": "backend",
       "type": "lib",
@@ -24,6 +159,7 @@
             "configurations": {}
           },
           "build": {
+            "cache": true,
             "executor": "nx:run-script",
             "options": {
               "script": "build"
@@ -60,6 +196,14 @@
   },
   "externalNodes": {},
   "dependencies": {
+    "frontend-e2e": [
+      {
+        "source": "frontend-e2e",
+        "target": "frontend",
+        "type": "implicit"
+      }
+    ],
+    "frontend": [],
     "backend": []
   },
   "version": "6.0"
