@@ -2,38 +2,12 @@
   "name": "blog.dunggramer.com",
   "private": true,
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {
-    "fe": "yarn workspace @blog.dunggramer.com/front-end dev",
-    "be": "yarn workspace backend dev",
-    "start": "concurrently \"yarn fe\" \"yarn be\"",
-    "build:be": "yarn workspace backend build",
-    "build:fe": "yarn workspace @blog.dunggramer.com/front-end build",
-    "clean": "rimraf ./**/node_modules ./**/dist ./**/build ./**/yarn.lock ./**/yarn-error.log ./**/.next"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DungGramer/blog.dunggramer.com.git"
-  },
+  "repository": "https://github.com/DungGramer/blog.dunggramer.com.git",
+  "author": "DungGramer <dung.dev.gramer@gmail.com>",
+  "license": "MIT",
   "workspaces": [
     "backend",
-    "front-end"
-  ],
-  "keywords": [],
-  "author": "DungGramer",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DungGramer/blog.dunggramer.com/issues"
-  },
-  "homepage": "https://github.com/DungGramer/blog.dunggramer.com#readme",
-  "dependencies": {
-    "@dunggramer/prettier": "^4.0.1",
-    "concurrently": "^7.4.0",
-    "date-fns": "^2.29.3"
-  },
-  "devDependencies": {
-    "@nrwl/nx-cloud": "latest",
-    "nx": "15.0.0"
-  }
+    "frontend"
+  ]
 }

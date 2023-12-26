@@ -1,0 +1,66 @@
+{
+  "nodes": {
+    "backend": {
+      "name": "backend",
+      "type": "lib",
+      "data": {
+        "root": "backend",
+        "sourceRoot": "backend",
+        "name": "backend",
+        "projectType": "library",
+        "targets": {
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "deploy": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "deploy"
+            },
+            "configurations": {}
+          },
+          "deploy-graphql": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "deploy-graphql"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "implicitDependencies": [],
+        "tags": []
+      }
+    }
+  },
+  "externalNodes": {},
+  "dependencies": {
+    "backend": []
+  },
+  "version": "6.0"
+}

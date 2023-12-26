@@ -4,7 +4,6 @@ export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
-  i18n: true,
   fields: [
     defineField({
       name: 'title',
@@ -48,40 +47,7 @@ export default defineType({
     defineField({
       name: 'body',
       title: 'Body',
-      // type: 'blockContent',
-      type: 'array',
-      of: [
-        {type: 'block'},
-        {
-          type: 'image',
-          fields: [
-            {
-              title: 'Image Position',
-              name: 'position',
-              type: 'string',
-              options: {
-                list: [
-                  {title: 'Center', value: 'center'},
-                  {title: 'Left', value: 'left'},
-                  {title: 'Right', value: 'right'},
-                ],
-                layout: 'radio',
-              },
-            },
-            {
-              name: 'alt',
-              type: 'text',
-              title: 'Alternative Text',
-            },
-          ],
-        },
-        {
-          type: 'code',
-          options: {
-            withFilename: true,
-          },
-        },
-      ],
+      type: 'blockContent',
     }),
   ],
 

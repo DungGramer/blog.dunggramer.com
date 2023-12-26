@@ -1,0 +1,79 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.2.7",
+  "deps": {},
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "backend": [
+        {
+          "file": "backend/.eslintrc",
+          "hash": "15307582140557770818"
+        },
+        {
+          "file": "backend/.gitignore",
+          "hash": "16296968890606805579"
+        },
+        {
+          "file": "backend/README.md",
+          "hash": "12923901648532931716"
+        },
+        {
+          "file": "backend/package.json",
+          "hash": "4703563821091714594"
+        },
+        {
+          "file": "backend/sanity.cli.ts",
+          "hash": "3326125447325855140"
+        },
+        {
+          "file": "backend/sanity.config.ts",
+          "hash": "4571094999563995400"
+        },
+        {
+          "file": "backend/schemas/author.ts",
+          "hash": "15403681427526409676"
+        },
+        {
+          "file": "backend/schemas/blockContent.ts",
+          "hash": "1163844485163933464"
+        },
+        {
+          "file": "backend/schemas/category.ts",
+          "hash": "2366847299382175756"
+        },
+        {
+          "file": "backend/schemas/index.ts",
+          "hash": "1031517191035946325"
+        },
+        {
+          "file": "backend/schemas/post.ts",
+          "hash": "10164256994478419078"
+        },
+        {
+          "file": "backend/static/.gitkeep",
+          "hash": "5458914229412634645"
+        },
+        {
+          "file": "backend/tsconfig.json",
+          "hash": "5128242753863182146"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".vscode/launch.json",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "4003479649471557297"
+      },
+      {
+        "file": "package.json",
+        "hash": "4067558930769777596"
+      }
+    ]
+  }
+}
