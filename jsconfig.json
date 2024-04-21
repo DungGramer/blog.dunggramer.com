@@ -1,6 +1,0 @@
-{
-  "compilerOptions": {
-  },
-  "include": ["front-end/**/*", "back-end/**/*"],
-  "exclude": ["node_modules", "back-end/node_modules", "front-end/node_modules"]
-}
