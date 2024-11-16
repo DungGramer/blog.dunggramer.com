@@ -1,0 +1,86 @@
+:root {
+  --sizes-container-sm: 640px;
+  --sizes-container-md: 768px;
+  --sizes-container-lg: 1024px;
+  --sizes-container-xl: 1280px;
+  --sizes-container-2xl: 1440px;
+  --sizes-container-3xl: 1920px;
+  --sizes-container-4xl: 3400px;
+
+  --zIndex-hide: -1;
+  --zIndex-auto: auto;
+  --zIndex-base: 0;
+  --zIndex-docked: 10;
+  --zIndex-dropdown: 1000;
+  --zIndex-sticky: 1100;
+  --zIndex-banner: 1200;
+  --zIndex-overlay: 1300;
+  --zIndex-modal: 1400;
+  --zIndex-popover: 1500;
+  --zIndex-skipLink: 1600;
+  --zIndex-toast: 1700;
+  --zIndex-tooltip: 1800;
+
+  --transition-property-common: background-color, border-color, color, fill,
+    stroke, opacity, box-shadow, transform;
+  --transition-property-colors: background-color, border-color, color, fill,
+    stroke;
+  --transition-property-dimensions: width, height;
+  --transition-property-position: left, right, top, bottom;
+  --transition-property-background: background-color, background-image,
+    background-position;
+
+  --blur-none: 0;
+  --blur-sm: 4px;
+  --blur-base: 8px;
+  --blur-md: 12px;
+  --blur-lg: 16px;
+  --blur-xl: 24px;
+  --blur-2xl: 40px;
+  --blur-3xl: 64px;
+  --breakpoints-base: 0px;
+  --breakpoints-sm: 500px;
+  --breakpoints-md: 744px;
+  --breakpoints-lg: 1024px;
+  --breakpoints-xl: 1280px;
+  --breakpoints-2xl: 1440px;
+  --breakpoints-3xl: 1920px;
+  --breakpoints-4xl: 3400px;
+}
+
+.container,
+.container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 510px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 950px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1450px;
+  }
+}

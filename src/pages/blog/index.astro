@@ -12,7 +12,6 @@ import { getPosts } from "../../services/posts";
 // );
 
 const posts = (await getPosts())?.data?.posts?.nodes;
-console.log(`📕 p - 15:index.astro \n`, posts);
 ---
 
 <!doctype html>
