@@ -1,13 +1,10 @@
-import { ui, defaultLang } from './ui';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "./languages";
 
-export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
+export function detectLanguage(pathname: string): string {
+  const lang = SUPPORTED_LANGUAGES.find((lang) => pathname.startsWith(`/${lang}`));
+  return lang || DEFAULT_LANGUAGE;
 }
 
-export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: keyof typeof ui[typeof defaultLang]) {
-    return ui[lang][key] || ui[defaultLang][key];
-  }
+export function switchLanguage(currentLang: string): string {
+  return currentLang === "en" ? "vi" : "en";
 }

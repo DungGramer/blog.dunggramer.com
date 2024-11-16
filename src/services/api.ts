@@ -4,20 +4,14 @@ import ky from "ky";
 //   prefixUrl: "https://code.dunggramer.com/graphql",
 // });
 
-const api = async (query: string, variables = {}) => {
+async function api <T>(query: string, variables = {}) {
   try {
     return await ky
       .post("https://code.dunggramer.com/graphql", {
-        json: {
-          query: query,
-          variables: variables,
-        },
-        headers: {
-          "Content-Type": "application/json",
-          // Add any other headers like authentication tokens here
-        },
+        json: { query, variables },
+        headers: { "Content-Type": "application/json; charset=utf-8" },
       })
-      .json();
+      .json<T>();
   } catch (error) {
     console.error("GraphQL query failed:", error);
     throw error;

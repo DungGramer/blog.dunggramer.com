@@ -3,12 +3,16 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// export const prerender = true;
+// const browserLang = Astro.request.headers.get("accept-language")?.startsWith("vi") ? "vi" : "en";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={'vi'}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta charset="utf-8">
 	</head>
 	<body>
 		<Header />

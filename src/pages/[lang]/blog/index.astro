@@ -1,21 +1,23 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
-import { getPosts } from "../../services/posts";
+import BaseHead from "../../../components/BaseHead.astro";
+import Footer from "../../../components/Footer.astro";
+import FormattedDate from "../../../components/FormattedDate.astro";
+import Header from "../../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { getPosts } from "../../../services/posts";
+import generateStaticPaths from "../../../utils/getStaticPaths";
 
-// const posts = (await getCollection('blog')).sort(
-// 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-// );
+export async function getStaticPaths() {
+  return generateStaticPaths();
+}
 
-const posts = (await getPosts())?.data?.posts?.nodes;
+const { lang } = Astro.params as any;
+const posts =
+  (await getPosts({ language: lang.toLocaleUpperCase() }))?.posts?.nodes || [];
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang={lang}>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
@@ -96,7 +98,7 @@ const posts = (await getPosts())?.data?.posts?.nodes;
           {
             posts.map((post) => (
               <li>
-                <a href={`/blog/${post.slug}/`}>
+                <a href={`/${lang}/blog/${post.slug}/`}>
                   <img
                     width={720}
                     height={360}

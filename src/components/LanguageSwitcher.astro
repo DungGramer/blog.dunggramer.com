@@ -1,0 +1,11 @@
+---
+import { switchLanguage } from "../i18n/utils";
+const { pathname } = Astro.url;
+const currentLang = pathname.startsWith("/vi") ? "vi" : "en";
+const newLang = switchLanguage(currentLang);
+const switchPath = pathname.replace(`/${currentLang}`, `/${newLang}`);
+---
+
+<div>
+  <a href={switchPath}>Switch to {newLang === "en" ? "English" : "Tiếng Việt"}</a>
+</div>
