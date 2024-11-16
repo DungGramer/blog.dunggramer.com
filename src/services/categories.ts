@@ -1,5 +1,5 @@
 import api from "./api";
-import type { PostsNode } from "./posts";
+// import type { PostsNode } from "./posts";
 
 export async function getCategories() {
   const query = `
@@ -63,7 +63,7 @@ export async function getPostsByCategory(categorySlug: string) {
 
   const variables = { slug: categorySlug };
   const response = (await api(query, variables)) as {
-    data: { category: { posts: { nodes: PostsNode[] } } };
+    data: { category: { posts: { nodes: any[] } } };
   };
   return response?.data?.category?.posts?.nodes || [];
 }

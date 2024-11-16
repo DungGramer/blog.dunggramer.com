@@ -68,7 +68,7 @@ const { title, description, pubDate, updatedDate, heroImage, language } = Astro.
 							{
 								updatedDate && (
 									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
+										Last updated on <FormattedDate date={updatedDate.toDateString()} />
 									</div>
 								)
 							}

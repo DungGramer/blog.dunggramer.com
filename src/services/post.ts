@@ -1,7 +1,7 @@
 import { DEFAULT_LANGUAGE, type LANGUAGES } from "../i18n/languages";
 import api from "./api";
 import { MediaItemSizeEnum } from "./graphql-type";
-import type { DefaultResponse, Post } from "./type";
+import type { DefaultResponse } from "./type";
 
 export interface GetPostParams {
   id: string;
@@ -11,7 +11,7 @@ export interface GetPostParams {
 }
 
 export const getPostDetail = async (params: GetPostParams) => {
-  const { id, idType = "SLUG", language = DEFAULT_LANGUAGE, size } = params;
+  const { idType = "SLUG", language = DEFAULT_LANGUAGE } = params;
 
   const query = `
     query GetBlogById($id: ID!, $idType: PostIdType!, $language: LanguageCodeEnum!, $size: MediaItemSizeEnum) {
@@ -47,8 +47,7 @@ export const getPostDetail = async (params: GetPostParams) => {
     }
   `;
 
-  const variables: GetPostParams = { idType, language, ...params, };
-  console.log(`📕 variables - 51:post.ts \n`, variables);
+  const variables: GetPostParams = { ...params, idType, language };
   const response = (await api(
     query,
     variables

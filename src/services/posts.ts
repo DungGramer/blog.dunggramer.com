@@ -5,10 +5,10 @@ import type { DefaultResponse, PageInfo, PostNode } from "./type";
 export async function getPosts(params: GetPostsParams) {
   const {
     language = DEFAULT_LANGUAGE,
-    search,
-    category,
-    tag,
-    after,
+    // search,
+    // category,
+    // tag,
+    // after,
     first = 10,
   } = params;
 
