@@ -7,7 +7,7 @@ import ky from "ky";
 async function api <T>(query: string, variables = {}) {
   try {
     return await ky
-      .post("https://code.dunggramer.com/graphql", {
+      .post("https://blog.dunggramer.com/graphql", {
         json: { query, variables },
         headers: { "Content-Type": "application/json; charset=utf-8" },
       })
